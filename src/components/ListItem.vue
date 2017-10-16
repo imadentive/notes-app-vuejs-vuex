@@ -1,9 +1,10 @@
 <template>
-  <a class="list-group-item" @click="chooseIt">
+  <a class="list-group-item" @click="">
     <h4 class="list-group-item-heading"> {{title}} </h4>
   </a>
 </template>
 <script>
+  import { mapActions } from 'vuex'
 export default {
   props:{
     title:{
@@ -12,9 +13,9 @@ export default {
     },
   },
   methods:{
-    chooseIt(){
-      this.$emit('chooseIt')
-    }
+    ...mapActions([
+      'addNote', // map `this.increment()` to `this.$store.dispatch('increment')`
+    ])
   }
 }
 </script>

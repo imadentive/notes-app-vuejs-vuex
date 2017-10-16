@@ -1,8 +1,8 @@
 <template>
-  <div>
-        <Toolbar />
-        <MainContent />
-        <NoteEditor />
+  <div id="app">
+      <Toolbar />
+      <MainContent />
+      <NoteEditor />
   </div>
 </template>
 

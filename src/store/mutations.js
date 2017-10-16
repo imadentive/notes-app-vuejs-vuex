@@ -6,10 +6,8 @@ export default {
     //do somethings
     state.currentNoteisFav = state.notes[index].isFav;
   },
-  [types.ADD_NOTE] (state) {
-    //do somethings
-   
-   
+  [types.ADD_NOTE] (state, data) {
+    state.notes.push(data)
   },
   [types.DELETE_NOTE] (state) {
     //do somethings 

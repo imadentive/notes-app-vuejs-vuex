@@ -1,6 +1,6 @@
 <template>
     <div id="toolbar">
-        <i class="glyphicon glyphicon-plus" @click="add"></i>
+        <i class="glyphicon glyphicon-plus" @click="add({id:new Date().getTime(),text:'hhhh'})"></i>
         <i class="glyphicon glyphicon-star" :class="{starred:$store.state.currentNoteisFav}"></i>
         <i class="glyphicon glyphicon-remove" @click="dele"></i>
         <!--{{ $store.state.currentNoteisFav }}-->
@@ -9,6 +9,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import { mapMutations } from 'vuex';
+import { mapActions } from 'vuex';
 import * as types from '@/store/mutation-types'
 let add = types.ADD_NOTE;
 let dele = types.DELETE_NOTE;
@@ -24,9 +25,9 @@ export default {
         ])
     },
     methods:{
-        ...mapMutations(
+        ...mapActions(
            { 
-               add:add,
+               add:'addNote',
                dele:dele
            },
         ),
