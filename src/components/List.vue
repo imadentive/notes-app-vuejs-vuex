@@ -1,7 +1,7 @@
 <template>
     <div class="container">
       <div class="list-group">
-        <list-item v-for="(item,index) in $store.state.notes" :key='item.id' :title='item.text' />
+        <list-item v-for="(item,index) in filterNotes" :key='item.id' :note="item" />
       </div>
     </div>
 </template>
@@ -13,6 +13,15 @@ export default {
       }
     },
     computed:{
+      filterNotes () {
+        if(this.$store.state.filter === 'fav') {
+          return this.$store.state.notes.filter(
+            note => note.isFav
+          )
+        } else {
+          return this.$store.state.notes;
+        }
+      }
     },
   components:{ ListItem },
   methods:{}

@@ -1,20 +1,20 @@
 <template>
-  <a class="list-group-item" @click="">
-    <h4 class="list-group-item-heading"> {{title}} </h4>
+  <a class="list-group-item" :class="{active: note.id === $store.state.currentNote.id}" @click="clickNote(note)">
+    <h4 class="list-group-item-heading"> {{note.text}} </h4>
   </a>
 </template>
 <script>
   import { mapActions } from 'vuex'
 export default {
   props:{
-    title:{
-      type:String,
-      default:'this is title'
+    note:{
+      type:Object,
+      default:{}
     },
   },
   methods:{
     ...mapActions([
-      'addNote', // map `this.increment()` to `this.$store.dispatch('increment')`
+      'clickNote'
     ])
   }
 }
